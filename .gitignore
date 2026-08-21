@@ -1,0 +1,28 @@
+# ---- 系统 ----
+.DS_Store
+Thumbs.db
+desktop.ini
+nul
+
+# ---- 日志 ----
+*.log
+backend/app.log
+backend/build.log
+frontend/dev.log
+frontend/npm-install.log
+
+# ---- 构建产物 ----
+backend/target/
+frontend/dist/
+frontend/node_modules/
+
+# ---- 运行数据（上传文件） ----
+backend/uploads/
+
+# ---- IDE ----
+.idea/
+.vscode/
+*.iml
+
+# ---- 本机临时脚本 ----
+assets/_gen.py
