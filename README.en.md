@@ -107,19 +107,30 @@ Attendance & leave approval (syncs absence); gate pass audit / permissions / str
 
 ---
 
+## 🗄️ Database Contract (db/)
+
+> 📌 **The 135-table DDL & init SQL is a FROZEN deliverable and is intentionally NOT included in this public repository** (contract security & demo-account hashes).
+
+- **Location**: `db/` folder inside the delivery package / local workspace (`00_数据库设计说明.md` + `01~14_*.sql`, 15 files).
+- **Why not in repo**: frozen schema contract, global dictionaries & demo account hashes — kept read-only and not distributed publicly by project convention.
+- **How to get it**: contact the maintainer — via **Issues** (request with your purpose) or the delivery package / shared drive.
+- **Import**: after obtaining `db/`, import in `01→14` order (see "Init database" below).
+
+---
+
 ## 🚀 Quick Start
 
 ### Requirements
 JDK 21.0.11 · MySQL 8.0.45 · Redis 5.0.14.1 · Node.js v24.14.1
 
 ### 1. Init database
-Import `db/01~13` in order; optionally `db/14` for demo data.
+> First obtain the `db/` folder from the "Database Contract" section above.
 
 ```bash
 mysql -uroot -p < db/01_init_database.sql
 mysql -uroot -p all_stage_edu < db/02_sys_platform.sql
 # ... 03~13
-mysql -uroot -p all_stage_edu < db/14_test_data.sql   # optional demo
+mysql -uroot -p all_stage_edu < db/14_test_data.sql   # optional demo (six-stage accounts)
 ```
 
 ### 2. Run backend (:8080)
@@ -148,7 +159,7 @@ Open http://localhost:5173 (LAN: http://<host-ip>:5173).
 ```
 ├── backend/   Spring Boot (239+ REST APIs)
 ├── frontend/  Vue 3 (32 pages)
-├── db/        MySQL DDL & init (135-table contract, frozen)
+├── db/        🔒 Database contract (local / delivery package, NOT in public repo)
 ├── assets/    GitHub banner & preview images
 └── README.dev.md / audit report
 ```

@@ -112,19 +112,32 @@
 
 ---
 
+## 🗄️ 数据库契约（db/）
+
+> 📌 **数据库建表与初始化 SQL（135 张表契约）为冻结交付物，出于数据契约与演示安全考虑，未随本公开仓库提供。**
+
+- **存放位置**：交付包 / 本地工作区根目录下的 `db/` 文件夹（`00_数据库设计说明.md` + `01~14_*.sql`，共 15 个文件）。
+- **为什么不在仓库**：该目录包含冻结版数据库表结构、全局字典与测试账号（含演示密码哈希）等敏感契约，按项目约定保持只读且不随公开仓库分发。
+- **如何获取**：请通过以下任一方式联系仓库维护者获取完整 `db/` 目录：
+  1. 在仓库 **Issues** 中提交索取申请（注明用途）；或
+  2. 通过维护者提供的交付包 / 网盘同步获取。
+- **导入方式**（拿到 db/ 后）：按 `01→14` 顺序导入 MySQL，见下方"初始化数据库"。
+
+---
+
 ## 🚀 快速开始
 
 ### 环境要求
 - JDK 21.0.11 · MySQL 8.0.45 · Redis 5.0.14.1 · Node.js v24.14.1
 
 ### 1. 初始化数据库
-按 `db/01~13` 依次导入；测试数据可再导入 `db/14`（含六学段演示账号）。
+> 需先从上方"数据库契约（db/）"获取 `db/` 目录。
 
 ```bash
 mysql -uroot -p < db/01_init_database.sql
 mysql -uroot -p all_stage_edu < db/02_sys_platform.sql
 # ... 03~13
-mysql -uroot -p all_stage_edu < db/14_test_data.sql   # 可选：演示数据
+mysql -uroot -p all_stage_edu < db/14_test_data.sql   # 可选：演示数据（含六学段账号）
 ```
 
 ### 2. 启动后端（:8080）
@@ -168,7 +181,7 @@ npm run dev
 │       ├── api/            axios 接口模块
 │       ├── views/          dashboard/platform/base/biz/kind/k12/stage
 │       ├── router/ layout/ store/ types/
-├── db/                     MySQL 建表与初始化 SQL（135 张表契约，只读）
+├── db/                     🔒 数据库契约（本地/交付包内，未随公开仓库提供）
 ├── assets/                 GitHub 介绍页配图
 └── README_开发启动说明.md / 功能实现对照审核报告.md
 ```
