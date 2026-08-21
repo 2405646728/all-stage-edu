@@ -113,7 +113,12 @@ Attendance & leave approval (syncs absence); gate pass audit / permissions / str
 
 - **Location**: `db/` folder inside the delivery package / local workspace (`00_数据库设计说明.md` + `01~14_*.sql`, 15 files).
 - **Why not in repo**: frozen schema contract, global dictionaries & demo account hashes — kept read-only and not distributed publicly by project convention.
-- **How to get it**: contact the maintainer — via **Issues** (request with your purpose) or the delivery package / shared drive.
+- **How to get it**:
+  1. ✅ **One-click download**: packaged as a Release asset →
+     [⬇️ db-schema-v1.0.zip](https://github.com/2405646728/all-stage-edu/releases/download/v1.0.0/db-schema-v1.0.zip)
+     (see **Releases** on the repo → latest v1.0.0 → asset `db-schema-v1.0.zip`)
+  2. Or open an **Issue** to request it; or
+  3. Get it from the delivery package / shared drive.
 - **Import**: after obtaining `db/`, import in `01→14` order (see "Init database" below).
 
 ---
